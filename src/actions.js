@@ -65,7 +65,11 @@ actions.vimEditURL = () =>
     "url"
   )
 
-actions.getOrgLink = () => `[[${window.location.href}][${document.title}]]`
+actions.getOrgLink = () => {
+  const href = window.location.href;
+  const title = document.title.substring(0, 40);
+  return `[[${href}][${title}]]`;
+}
 
 actions.getMarkdownLink = ({
   title = document.title,
