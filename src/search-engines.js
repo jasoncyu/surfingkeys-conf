@@ -350,6 +350,14 @@ completions.vw.callback = (response) =>
   )
 
 // ****** Shopping & Food ****** //
+// Walmart
+completions.wm = {
+  alias: "wm",
+  name: "walmart",
+  search: "https://www.walmart.com/search?q=",
+  compl: "https://www.walmart.com/typeahead/v3/complete?num=10&term=",
+  callback: (res) => JSON.parse(res.text).queries.map(obj => obj.displayName)
+}
 
 // Amazon
 completions.az = {
