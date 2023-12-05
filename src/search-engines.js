@@ -356,11 +356,11 @@ completions.az = {
   alias: "az",
   name: "amazon",
   search: "https://smile.amazon.com/s/?field-keywords=",
-  compl:
-    "https://completion.amazon.com/search/complete?method=completion&mkt=1&search-alias=aps&q=",
+  compl: "https://completion.amazon.com/api/2017/suggestions?suggestion-type=WIDGET&suggestion-type=KEYWORD&page-type=Gateway&alias=aps&site-variant=desktop&version=3&event=onkeypress&wc=&lop=en_US&last-prefix=red&avg-ks-time=1821&fb=1&session-id=140-2450438-5088903&request-id=0F4V1WYXARTSJ5T99PCX&mid=ATVPDKIKX0DER&plain-mid=1&client-info=search-ui&prefix=", // "https://completion.amazon.com/search/complete?method=completion&mkt=1&search-alias=aps&q=",
 }
 
-completions.az.callback = (response) => JSON.parse(response.text)[1]
+completions.az.callback = (response) => JSON.parse(response.text).suggestions.map(obj => obj.value)
+
 
 // Craigslist
 completions.cl = {
