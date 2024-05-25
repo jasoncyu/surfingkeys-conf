@@ -36,9 +36,17 @@ export default `
     padding-left: 8px !important;
   }
 
-  @media (prefers-color-scheme: light) {
+  @media (prefers-color-scheme: dark) {
     body {
       color: #483270;
+    }
+    #sk_status, #sk_find {
+        font-size: 12px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 15px;
     }
 
     #sk_omnibar {
@@ -89,57 +97,57 @@ export default `
   }
 
   @media (prefers-color-scheme: dark) {
-    body {
-      color: #d7b0ff;
-    }
+  //   body {
+  //     color: #d7b0ff !important;
+  //   }
 
     #sk_omnibar {
-      background-color: #2a323e;
-      color: #cad1d7;
+      background-color: #aaa !important;
+      // color: #cad1d7 !important;
     }
 
-    #sk_omnibar .prompt {
-      color: #eef5fb !important;
-    }
+  //   #sk_omnibar .prompt {
+  //     color: #eef5fb !important;
+  //   }
 
-    #sk_omnibar .separator {
-      color: #8af4ff !important;
-      padding-left: 8px !important;
-    }
+  //   #sk_omnibar .separator {
+  //     color: #8af4ff !important;
+  //     padding-left: 8px !important;
+  //   }
 
-    #sk_omnibar input {
-      color: white !important;
-    }
+  //   #sk_omnibar input {
+  //     color: white !important;
+  //   }
 
-    #sk_omnibarSearchResult {
-      border-top: 1px solid #545f6f !important;
-    }
+  //   #sk_omnibarSearchResult {
+  //     border-top: 1px solid #545f6f !important;
+  //   }
 
-    #sk_omnibar li.focused {
-      background: #181d24 !important;
-      color: #eef5fb !important;
-    }
+  //   #sk_omnibar li.focused {
+  //     background: #181d24 !important;
+  //     color: #eef5fb !important;
+  //   }
 
-    #sk_banner,
-    #sk_keystroke {
-      border: 1px solid #d7b0ff;
-      background: #483270;
-    }
+  //   #sk_banner,
+  //   #sk_keystroke {
+  //     border: 1px solid #d7b0ff;
+  //     background: #483270;
+  //   }
 
-    #sk_keystroke .annotation {
-      color: #d7b0ff;
-    }
+  //   #sk_keystroke .annotation {
+  //     color: #d7b0ff;
+  //   }
 
-    #sk_keystroke kbd {
-      color: #fff;
-      background: #7a57a4;
-      border: 1px solid #2d0080;
-      box-shadow: none;
-    }
+  //   #sk_keystroke kbd {
+  //     color: #fff;
+  //     background: #7a57a4;
+  //     border: 1px solid #2d0080;
+  //     box-shadow: none;
+  //   }
 
-    #sk_keystroke kbd .candidates {
-      color: #ff8cf8;
-    }
+  //   #sk_keystroke kbd .candidates {
+  //     color: #ff8cf8;
+  //   }
   }
 
   /* Disable RichHints CSS animation */

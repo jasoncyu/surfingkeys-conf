@@ -11,6 +11,8 @@ export default {
     defaultSearchEngine: "dd",
     stealFocusOnLoad: false,
     theme,
+    // Allow uppercase hint chars to open in new tab
+    hintShiftNonActive: true
   },
 
   keys,

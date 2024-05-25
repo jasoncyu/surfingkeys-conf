@@ -47,6 +47,14 @@ const unmaps = {
 }
 
 const maps = {}
+// https://github.com/brookhong/Surfingkeys/pull/395
+//
+// https://github.com/brookhong/Surfingkeys/pull/1159
+// f: show hints, then open link in current tab.
+// af: show hints, then open link in active new tab.
+// gf/C: show hints, then open link in non-active new tab.
+
+
 
 maps.global = [
   {
@@ -285,10 +293,10 @@ maps.global = [
     description: "Open a link in non-active new tab",
   },
   {
-    alias: "oh",
+    alias: "oo",
     category: categories.omnibar,
-    description: "Open URL from history",
-    callback: () => Front.openOmnibar({ type: "History" }),
+    description: "Omnibar",
+    callback: () => Front.openOmnibar({ type: "URLs" }),
   },
   // {
   //   alias:       "\\A",
