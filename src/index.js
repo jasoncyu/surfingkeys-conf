@@ -7,6 +7,7 @@ const {
   mapkey,
   map,
   unmap,
+  unmapAllExcept,
   Clipboard,
   Front,
   removeSearchAlias,
@@ -14,12 +15,6 @@ const {
   Hints,
 } = api
 
-// API docs: https://github.com/brookhong/Surfingkeys/blob/5940fb2cfac098c3347db9cbb6b47205d9c83641/docs/API.md?plain=1#L86
-// Toggle surfingkeys
-mapkey('<C-o>', 'passthru mode', () => {
-  api.Front.showPopup('passthru on')
-  api.Normal.passThrough()
-})
 
 // mapkey('<Ctrl-y>', 'Show me the money', function() {
 //     api.Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
@@ -139,9 +134,19 @@ const main = async () => {
 
   // Custom
   // Source: https://tinyurl.com/ytdabn56
-  mapkey('F', '#1Open a link in active new tab', function() {
+  mapkey("F", "#1Open a link in active new tab", () => {
     Hints.create("", Hints.dispatchMouseClick, {tabbed: true, active: true});
   });
+
+  // API docs: https://github.com/brookhong/Surfingkeys/blob/5940fb2cfac098c3347db9cbb6b47205d9c83641/docs/API.md?plain=1#L86
+  // Toggle surfingkeys
+  mapkey("<Ctrl-y>", "#0 Passthru mode toggle", () => {
+    // api.Front.showPopup('passthru on')
+    api.Normal.passThrough()
+  })
+
+  // only keep E, R and T from Surfingkeys for gmail.com and twitter.com
+  unmapAllExcept(['f','F', 'd', 'u'], /mail.google.com|youtube.com/);
 }
 
 if (typeof window !== "undefined") {

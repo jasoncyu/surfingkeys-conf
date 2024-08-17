@@ -2,17 +2,24 @@ import theme from "./theme.js"
 import keys from "./keys.js"
 import searchEngines from "./search-engines.js"
 
+const lurkSites = [
+  "mail.google.com",
+  "youtube.com",
+]
+const lurkSitesRegex = new RegExp(lurkSites.map(site => site.replace('.', '\\.')).join('|'));
+
 export default {
   settings: {
     hintAlign: "left",
     hintCharacters: "qwertasdfgzxcvb",
     omnibarSuggestionTimeout: 500,
     richHintsForKeystroke: 1,
-    defaultSearchEngine: "dd",
+    defaultSearchEngine: "g",
     stealFocusOnLoad: false,
     theme,
     // Allow uppercase hint chars to open in new tab
-    hintShiftNonActive: true
+    hintShiftNonActive: true,
+    // lurkingPattern: lurkSitesRegex
   },
 
   keys,

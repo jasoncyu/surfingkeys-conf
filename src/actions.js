@@ -67,7 +67,7 @@ actions.vimEditURL = () =>
 
 actions.getOrgLink = () => {
   const href = window.location.href;
-  const title = document.title.substring(0, 40);
+  const title = document.title.substring(0, 80);
   return `[[${href}][${title}]]`;
 }
 
