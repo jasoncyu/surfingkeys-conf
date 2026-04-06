@@ -11,8 +11,7 @@ const lurkSitesRegex = new RegExp(lurkSites.map(site => site.replace('.', '\\.')
 export default {
   settings: {
     hintAlign: "left",
-    hintCharacters: "qwertasdfgzxcvb",
-    omnibarSuggestionTimeout: 500,
+omnibarSuggestionTimeout: 500,
     richHintsForKeystroke: 1,
     defaultSearchEngine: "g",
     stealFocusOnLoad: false,

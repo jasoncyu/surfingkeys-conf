@@ -171,6 +171,7 @@ actions.openLink = (url, { newTab = false, active = true } = {}) => {
 actions.editSettings = () =>
   tabOpenLink(chrome.extension.getURL("/pages/options.html"))
 
+// Already bound to ;s
 // actions.togglePdfViewer = () =>
 //   chrome.storage.local.get("noPdfViewer", (resp) => {
 //     if (!resp.noPdfViewer) {
@@ -1199,6 +1200,10 @@ actions.yt.getCurrentTimestampHuman = () => {
   const [ss, mm, hh] = actions.yt.getCurrentTimestamp()
   const pad = (n) => `${n}`.padStart(2, "0")
   return hh > 0 ? `${hh}:${pad(mm)}:${pad(ss)}` : `${mm}:${pad(ss)}`
+}
+
+actions.yt.setPlaybackRate = (rate) => {
+  document.querySelector('video').playbackRate = rate
 }
 
 actions.yt.getShortLink = () => {

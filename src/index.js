@@ -4,6 +4,7 @@ import api from "./api.js"
 
 const { categories } = help
 const {
+  RUNTIME,
   mapkey,
   map,
   unmap,
@@ -93,16 +94,47 @@ const registerSearchEngines = (searchEngines, searchleader) =>
         })
       }
     )
+    // Custom
+    // Source: https://tinyurl.com/ytdabn56
+    mapkey("F", "#1Open a link in active new tab", () => {
+      Hints.create("", Hints.dispatchMouseClick, {tabbed: true, active: true});
+    });
+
+    // API docs: https://github.com/brookhong/Surfingkeys/blob/5940fb2cfac098c3347db9cbb6b47205d9c83641/docs/API.md?plain=1#L86
+    // Toggle surfingkeys
+    mapkey("<Alt-t>", "#0 asdf Passthru mode toggle", () => {
+      api.Front.showPopup('passthru on')
+      api.Normal.passThrough()
+    })
+    // mapkey('<Alt-y>', '#0asdfShow me the money', function() {
+    //     api.Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
+    // });
+
+    // mapkey("<Ctrl-y>", "#0 Passthru mode toggle", () => {
+    //   api.Front.showPopup('passthru on')
+    //   api.Normal.passThrough()
+    // })
+    // mapkey('<ctrl-y>', '#1Show me the money', function() {
+    //     Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
+    // });
+
   })
 
 const main = async () => {
   window.surfingKeys = api
+  RUNTIME('updateSettings', {
+    settings: {
+      "noPdfViewer": 1
+    }
+  })
   if (conf.settings) {
     Object.assign(
       settings,
       typeof conf.settings === "function" ? conf.settings() : conf.settings
     )
   }
+
+  Hints.setCharacters('asdfjklghqwertyuiopzxcvbnm'); // right hand
 
   // if (conf.logLevels) {
   //   await chrome.storage.local.set({
@@ -131,19 +163,6 @@ const main = async () => {
     const { maps, aliases = {} } = keys
     registerKeys(maps, aliases, conf.siteleader)
   }
-
-  // Custom
-  // Source: https://tinyurl.com/ytdabn56
-  mapkey("F", "#1Open a link in active new tab", () => {
-    Hints.create("", Hints.dispatchMouseClick, {tabbed: true, active: true});
-  });
-
-  // API docs: https://github.com/brookhong/Surfingkeys/blob/5940fb2cfac098c3347db9cbb6b47205d9c83641/docs/API.md?plain=1#L86
-  // Toggle surfingkeys
-  mapkey("<Ctrl-y>", "#0 Passthru mode toggle", () => {
-    // api.Front.showPopup('passthru on')
-    api.Normal.passThrough()
-  })
 
   // only keep E, R and T from Surfingkeys for gmail.com and twitter.com
   unmapAllExcept(['f','F', 'd', 'u'], /mail.google.com|youtube.com/);
