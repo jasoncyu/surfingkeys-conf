@@ -12,7 +12,7 @@ export default {
   settings: {
     hintAlign: "left",
 omnibarSuggestionTimeout: 500,
-    richHintsForKeystroke: 1,
+    richHintsForKeystroke: 500,
     defaultSearchEngine: "g",
     stealFocusOnLoad: false,
     theme,
