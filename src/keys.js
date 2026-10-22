@@ -494,6 +494,12 @@ maps["youtube.com"] = [
     callback: () =>
       Clipboard.write(actions.yt.getCurrentTimestampMarkdownLink()),
   },
+  {
+    leader: "",
+    alias: "1",
+    description: "Set video speed to 1",
+    callback: () => actions.yt.setPlaybackRate(1.0)
+  }
 ]
 
 maps["vimeo.com"] = [
